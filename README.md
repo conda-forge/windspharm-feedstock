@@ -5,7 +5,7 @@ Home: http://ajdawson.github.io/windspharm/
 
 Package license: MIT
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: Python package for performing computations on global wind fields in spherical geometry
 
