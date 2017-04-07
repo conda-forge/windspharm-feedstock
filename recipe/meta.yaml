@@ -1,41 +1,42 @@
 {% set version = "1.5.1" %}
 
 package:
-    name: windspharm
-    version: {{ version }}
+  name: windspharm
+  version: {{ version }}
 
 source:
-    fn: windspharm-{{ version }}.tar.gz
-    url: https://github.com/ajdawson/windspharm/archive/v{{ version }}.tar.gz
-    sha256: 1d1f20d8ab09aecbaff9786510645b93e5ab73855f573d9517ac7f4112ad31ed
+  fn: windspharm-{{ version }}.tar.gz
+  url: https://github.com/ajdawson/windspharm/archive/v{{ version }}.tar.gz
+  sha256: 1d1f20d8ab09aecbaff9786510645b93e5ab73855f573d9517ac7f4112ad31ed
 
 build:
-    number: 0
-    skip: True  # [win and py3k or win64]
-    script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 0
+  skip: True  # [win and py3k or win64]
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
-    build:
-        - python
-        - setuptools
-    run:
-        - python
-        - numpy
-        - pyspharm
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - numpy
+    - pyspharm
 
 test:
-    requires:
-        - nose
-        - pep8
-    imports:
-        - windspharm
+  requires:
+    - nose
+    - pep8
+  imports:
+    - windspharm
 
 about:
-    home: http://ajdawson.github.io/windspharm/
-    license: MIT
-    summary: Python package for performing computations on global wind fields in spherical geometry
+  home: http://ajdawson.github.io/windspharm/
+  license: MIT
+  license_file: license.txt
+  summary: 'Python package for performing computations on global wind fields in spherical geometry.'
 
 extra:
-    recipe-maintainers:
-        - ajdawson
-        - ocefpaf
+  recipe-maintainers:
+    - ajdawson
+    - ocefpaf
