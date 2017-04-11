@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: Python package for performing computations on global wind fields in spherical geometry
+Summary: Python package for performing computations on global wind fields in spherical geometry.
 
 
 
