@@ -1,4 +1,4 @@
-{% set version = "1.5.1" %}
+{% set version = "1.6.0" %}
 
 package:
   name: windspharm
@@ -7,7 +7,7 @@ package:
 source:
   fn: windspharm-{{ version }}.tar.gz
   url: https://github.com/ajdawson/windspharm/archive/v{{ version }}.tar.gz
-  sha256: 1d1f20d8ab09aecbaff9786510645b93e5ab73855f573d9517ac7f4112ad31ed
+  sha256: 2530170e4f01420ab79855f562ee926a66fe969be407bf1f53a6ee6d261db6a2
 
 build:
   number: 0
@@ -25,8 +25,7 @@ requirements:
 
 test:
   requires:
-    - nose
-    - pep8
+    - pytest
   imports:
     - windspharm
 
