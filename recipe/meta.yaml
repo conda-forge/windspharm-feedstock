@@ -1,4 +1,5 @@
-{% set version = "1.7.0" %}
+{% set python_min = python_min|default("3.8") %}
+{% set version = "1.7.1" %}
 
 package:
   name: windspharm
@@ -6,27 +7,32 @@ package:
 
 source:
   url: https://github.com/ajdawson/windspharm/archive/v{{ version }}.tar.gz
-  sha256: dea0dcdcef65a3dd7af99814b381558cc63a695a2727a61798ed36d63040b6a0
+  sha256: f6bd22f6d32e3381e89855c696159f1a3f41b9588491317f2ed9cfe47b79d24c
 
 build:
-  number: 1004
-  skip: True  # [win and py3k or win64]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
+    - setuptools
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - numpy
-    - pyspharm
+    - pyspharm >=1.0.8
 
 test:
-  requires:
-    - pytest
   imports:
     - windspharm
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python {{ python_min }}
+    - pytest
 
 about:
   home: http://ajdawson.github.io/windspharm/
