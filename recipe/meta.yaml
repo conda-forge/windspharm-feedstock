@@ -1,3 +1,4 @@
+{% set python_min = python_min|default("3.8") %}
 {% set version = "1.7.1" %}
 
 package:
@@ -10,23 +11,28 @@ source:
 
 build:
   number: 0
-  skip: true  # [win and py3k or win64]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
+    - setuptools
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - numpy
-    - pyspharm
+    - pyspharm >=1.0.8
 
 test:
-  requires:
-    - pytest
   imports:
     - windspharm
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python {{ python_min }}
+    - pytest
 
 about:
   home: http://ajdawson.github.io/windspharm/
