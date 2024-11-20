@@ -29,6 +29,7 @@ test:
     - windspharm
   commands:
     - pip check
+    - pytest --pyargs windspharm
   requires:
     - pip
     - python {{ python_min }}
