@@ -1,5 +1,5 @@
 {% set python_min = python_min|default("3.8") %}
-{% set version = "1.7.1" %}
+{% set version = "2.0.0" %}
 
 package:
   name: windspharm
@@ -22,7 +22,7 @@ requirements:
   run:
     - python >={{ python_min }}
     - numpy
-    - pyspharm >=1.0.8
+    - pyspharm >=1.0.9
 
 test:
   imports:
